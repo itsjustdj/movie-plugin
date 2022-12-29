@@ -8,26 +8,12 @@ function Custom_Fields(){
         'CF',                       //custom fields function
         'movie_reviews',             //custom post type
         'normal',
-        'low'
+        'high'
     );
 }
 
 function CF(){
     ?>
-        <input type="text" name="prewatch">
+        <input type="text" name="title">
     <?php
 }
-
-function save_custom_fields($post_ID) {
-    $prewatch = $_POST['prewatch'];
-
-    global $wpdb;
-    $wpdb->insert(
-        $wpdb->prefix.'prewatch_thoughts',
-        [
-            'prewatch_ID' => '10',
-            'title' => $prewatch
-        ]
-    );
-}
-add_action('save_post', 'save_custom_fields');
